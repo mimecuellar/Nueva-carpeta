@@ -1,0 +1,1201 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cultura de Argentina 🇦🇷</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #dff6ff, #fff4df, #e8dcff);
+            color: #222;
+        }
+
+        header {
+            min-height: 520px;
+            background:
+                linear-gradient(rgba(0, 50, 100, 0.45), rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=1800&q=90");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+
+        header div {
+            max-width: 1000px;
+        }
+
+        header h1 {
+            font-size: 65px;
+            margin: 10px 0;
+            text-shadow: 4px 4px 10px #000;
+        }
+
+        header p {
+            font-size: 23px;
+            line-height: 1.6;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0077b6;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px #555;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px 14px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ffe066;
+        }
+
+        section {
+            width: 92%;
+            max-width: 1250px;
+            margin: 45px auto;
+            padding: 35px;
+            background: rgba(255,255,255,0.94);
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #006494;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .intro {
+            font-size: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .imagen-grande {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 22px;
+            margin: 20px 0;
+            box-shadow: 0 7px 20px rgba(0,0,0,0.25);
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .contenido {
+            padding: 20px;
+        }
+
+        .contenido h3 {
+            color: #0077b6;
+            font-size: 25px;
+            margin-top: 0;
+        }
+
+        .contenido p {
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .regiones .tarjeta:nth-child(1) {
+            border-top: 8px solid #f9c74f;
+        }
+
+        .regiones .tarjeta:nth-child(2) {
+            border-top: 8px solid #43aa8b;
+        }
+
+        .regiones .tarjeta:nth-child(3) {
+            border-top: 8px solid #577590;
+        }
+
+        .regiones .tarjeta:nth-child(4) {
+            border-top: 8px solid #f9844a;
+        }
+
+        .regiones .tarjeta:nth-child(5) {
+            border-top: 8px solid #90be6d;
+        }
+
+        .musica .tarjeta {
+            border-top: 8px solid #9b5de5;
+        }
+
+        .danzas .tarjeta {
+            border-top: 8px solid #f15bb5;
+        }
+
+        .gastronomia .tarjeta {
+            border-top: 8px solid #f9844a;
+        }
+
+        .dato {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+            line-height: 1.8;
+        }
+
+        .dato h3 {
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+        .lista {
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            font-size: 17px;
+        }
+
+        th {
+            background: #0077b6;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 14px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background: #eefaff;
+        }
+
+        footer {
+            background: #003049;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            line-height: 1.8;
+        }
+
+        .bandera {
+            font-size: 45px;
+        }
+
+        @media(max-width: 700px) {
+
+            header h1 {
+                font-size: 42px;
+            }
+
+            header p {
+                font-size: 18px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .imagen-grande {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="bandera">🇦🇷</div>
+
+        <h1>Cultura de Argentina</h1>
+
+        <p>
+            Un recorrido por nuestras tradiciones, música, danzas,
+            gastronomía, regiones, costumbres, arte y pasión.
+        </p>
+    </div>
+</header>
+
+<nav>
+    <a href="#introduccion">Inicio</a>
+    <a href="#regiones">Regiones</a>
+    <a href="#musica">Música</a>
+    <a href="#danzas">Danzas</a>
+    <a href="#gastronomia">Gastronomía</a>
+    <a href="#tradiciones">Tradiciones</a>
+    <a href="#arte">Arte</a>
+    <a href="#deportes">Deportes</a>
+    <a href="#galeria">Galería</a>
+</nav>
+
+
+<!-- INTRODUCCIÓN -->
+
+<section id="introduccion">
+
+    <h2>🇦🇷 ¿Qué es la cultura argentina?</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=1600&q=90"
+        alt="Argentina">
+
+    <p class="intro">
+        La cultura argentina es el resultado de una gran diversidad de
+        pueblos, costumbres, tradiciones y formas de vida. Está formada
+        por la influencia de los pueblos originarios, las culturas
+        europeas, las comunidades inmigrantes y las tradiciones
+        desarrolladas en las distintas regiones del país.
+    </p>
+
+    <p class="intro">
+        Argentina posee una identidad cultural muy amplia. El mate,
+        el asado, el tango, el folklore, el chamamé, las empanadas,
+        el fútbol, las fiestas populares y las tradiciones gauchas
+        forman parte de la vida cotidiana de muchas personas.
+    </p>
+
+    <p class="intro">
+        Además, cada región tiene sus propias características.
+        Los paisajes, las comidas, la música y las costumbres cambian
+        desde el Norte hasta la Patagonia y desde la Cordillera de
+        los Andes hasta el Litoral.
+    </p>
+
+</section>
+
+
+<!-- REGIONES -->
+
+<section id="regiones" class="regiones">
+
+    <h2>🌎 Las regiones culturales de Argentina</h2>
+
+    <p class="subtitulo">
+        Cada región posee paisajes, costumbres y expresiones culturales diferentes.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85"
+                alt="Norte argentino">
+
+            <div class="contenido">
+
+                <h3>🏔️ Norte Argentino</h3>
+
+                <p>
+                    El Norte se caracteriza por sus montañas, quebradas,
+                    cerros de colores y una fuerte presencia de tradiciones
+                    originarias. La música folklórica, las artesanías y las
+                    fiestas populares tienen gran importancia.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85"
+                alt="Litoral argentino">
+
+            <div class="contenido">
+
+                <h3>🌿 Litoral</h3>
+
+                <p>
+                    El Litoral está relacionado con los grandes ríos,
+                    los humedales y la cultura guaraní. Corrientes ocupa
+                    un lugar muy importante por el chamamé, sus carnavales,
+                    sus fiestas y sus tradiciones.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1000&q=85"
+                alt="Buenos Aires">
+
+            <div class="contenido">
+
+                <h3>🏙️ Región Pampeana</h3>
+
+                <p>
+                    Las grandes llanuras de la región pampeana están
+                    relacionadas con la tradición gaucha, el campo,
+                    el mate, el asado y la vida rural.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85"
+                alt="Mendoza">
+
+            <div class="contenido">
+
+                <h3>🍇 Cuyo</h3>
+
+                <p>
+                    Cuyo comprende principalmente Mendoza, San Juan
+                    y San Luis. Es conocida por la Cordillera de los Andes,
+                    sus paisajes, la producción de vino y la cultura
+                    relacionada con la vendimia.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1000&q=90"
+                alt="Patagonia">
+
+            <div class="contenido">
+
+                <h3>🏔️ Patagonia</h3>
+
+                <p>
+                    La Patagonia presenta enormes montañas, glaciares,
+                    lagos, bosques y extensos paisajes. Su identidad
+                    cultural combina tradiciones rurales, pueblos
+                    originarios y una fuerte relación con la naturaleza.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MÚSICA -->
+
+<section id="musica" class="musica">
+
+    <h2>🎶 Música argentina</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=90"
+        alt="Música">
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=85"
+                alt="Música">
+
+            <div class="contenido">
+
+                <h3>🎸 Folklore</h3>
+
+                <p>
+                    El folklore argentino reúne diferentes estilos
+                    musicales y danzas tradicionales. Entre ellos se
+                    encuentran la zamba, la chacarera, el gato, la
+                    cueca y diferentes expresiones regionales.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85"
+                alt="Tango">
+
+            <div class="contenido">
+
+                <h3>💃 Tango</h3>
+
+                <p>
+                    El tango nació en la región del Río de la Plata
+                    y se convirtió en una de las expresiones culturales
+                    argentinas más reconocidas internacionalmente.
+                    Combina música, poesía y danza.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1000&q=85"
+                alt="Chamamé">
+
+            <div class="contenido">
+
+                <h3>🪗 Chamamé</h3>
+
+                <p>
+                    El chamamé es una expresión musical y dancística
+                    especialmente importante en Corrientes y el Litoral.
+                    Tiene influencias guaraníes y europeas y se caracteriza
+                    por instrumentos como el acordeón y el bandoneón.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DANZAS -->
+
+<section id="danzas" class="danzas">
+
+    <h2>💃 Danzas tradicionales</h2>
+
+    <p class="subtitulo">
+        Las danzas son una forma de transmitir historias, sentimientos
+        y costumbres de generación en generación.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85"
+                alt="Pareja bailando">
+
+            <div class="contenido">
+
+                <h3>💃 Tango</h3>
+
+                <p>
+                    Se baila generalmente en pareja y se caracteriza por
+                    movimientos coordinados, elegantes y expresivos.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=1000&q=85"
+                alt="Danza folklórica">
+
+            <div class="contenido">
+
+                <h3>🌸 Zamba</h3>
+
+                <p>
+                    La zamba es una danza tradicional en la que los
+                    bailarines utilizan pañuelos como parte fundamental
+                    de la expresión corporal.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=85"
+                alt="Folklore">
+
+            <div class="contenido">
+
+                <h3>👞 Chacarera</h3>
+
+                <p>
+                    La chacarera es una danza folklórica muy popular,
+                    especialmente relacionada con Santiago del Estero.
+                    Combina zapateos, zarandeos y movimientos en pareja.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=1000&q=85"
+                alt="Chamamé">
+
+            <div class="contenido">
+
+                <h3>🪗 Chamamé</h3>
+
+                <p>
+                    El chamamé se baila en pareja enlazada y es una
+                    de las expresiones culturales más representativas
+                    de Corrientes y la región litoraleña.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GASTRONOMÍA -->
+
+<section id="gastronomia" class="gastronomia">
+
+    <h2>🍴 Gastronomía argentina</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1600&q=90"
+        alt="Comida argentina">
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1000&q=90"
+                alt="Asado argentino">
+
+            <div class="contenido">
+
+                <h3>🥩 Asado</h3>
+
+                <p>
+                    El asado es una de las comidas más representativas
+                    de Argentina. También es una tradición social:
+                    muchas familias y grupos de amigos se reúnen alrededor
+                    de la parrilla.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=1000&q=85"
+                alt="Empanadas">
+
+            <div class="contenido">
+
+                <h3>🥟 Empanadas</h3>
+
+                <p>
+                    Las empanadas son muy populares en todo el país.
+                    Existen diferentes variedades según la región,
+                    con distintos rellenos y formas de preparación.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1598018553943-3c6c4d7a2d47?auto=format&fit=crop&w=1000&q=85"
+                alt="Mate">
+
+            <div class="contenido">
+
+                <h3>🧉 Mate</h3>
+
+                <p>
+                    El mate es mucho más que una bebida. Es una costumbre
+                    social que representa compartir, conversar y pasar
+                    tiempo con otras personas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+                alt="Dulce">
+
+            <div class="contenido">
+
+                <h3>🍮 Dulce de leche</h3>
+
+                <p>
+                    El dulce de leche es uno de los productos dulces más
+                    conocidos de Argentina. Se utiliza en alfajores,
+                    tortas, panqueques y muchos otros postres.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRADICIONES -->
+
+<section id="tradiciones">
+
+    <h2>🧉 Tradiciones argentinas</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1598018553943-3c6c4d7a2d47?auto=format&fit=crop&w=1600&q=90"
+        alt="Mate argentino">
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=1000&q=85"
+                alt="Caballo">
+
+            <div class="contenido">
+
+                <h3>🐎 Tradición gaucha</h3>
+
+                <p>
+                    La figura del gaucho está vinculada al campo,
+                    la vida rural, los caballos, el mate, el asado,
+                    las payadas y diferentes costumbres de las
+                    llanuras argentinas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1598018553943-3c6c4d7a2d47?auto=format&fit=crop&w=1000&q=85"
+                alt="Mate">
+
+            <div class="contenido">
+
+                <h3>🧉 Compartir mate</h3>
+
+                <p>
+                    Compartir mate es una costumbre muy extendida
+                    en Argentina. Puede estar presente en reuniones,
+                    viajes, plazas, hogares y momentos de descanso.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1000&q=90"
+                alt="Asado">
+
+            <div class="contenido">
+
+                <h3>🔥 Reunirse a comer</h3>
+
+                <p>
+                    Las reuniones alrededor de una parrilla son
+                    una parte importante de la vida social argentina.
+                    El asado suele estar relacionado con encuentros
+                    familiares y de amigos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ARTE -->
+
+<section id="arte">
+
+    <h2>🎨 Arte y expresiones culturales</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1600&q=90"
+        alt="Arte">
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=85"
+                alt="Arte">
+
+            <div class="contenido">
+
+                <h3>🖌️ Artes visuales</h3>
+
+                <p>
+                    La pintura, la escultura, el muralismo y otras
+                    expresiones artísticas forman parte de la cultura
+                    argentina y permiten representar diferentes
+                    momentos de nuestra historia.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1000&q=85"
+                alt="Museo">
+
+            <div class="contenido">
+
+                <h3>🏛️ Museos</h3>
+
+                <p>
+                    Los museos conservan objetos, obras y documentos
+                    que ayudan a conocer la historia y las expresiones
+                    culturales del país.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DEPORTES -->
+
+<section id="deportes">
+
+    <h2>⚽ Deportes y pasión argentina</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=90"
+        alt="Fútbol">
+
+    <p class="intro">
+        El deporte ocupa un lugar muy importante dentro de la cultura
+        argentina. El fútbol es especialmente popular y genera una
+        enorme pasión en diferentes generaciones.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
+                alt="Fútbol">
+
+            <div class="contenido">
+
+                <h3>⚽ Fútbol</h3>
+
+                <p>
+                    El fútbol es uno de los deportes más importantes
+                    de Argentina. La Selección Argentina forma parte
+                    de la identidad deportiva del país.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=85"
+                alt="Baloncesto">
+
+            <div class="contenido">
+
+                <h3>🏀 Básquet</h3>
+
+                <p>
+                    El básquet argentino también tiene una importante
+                    tradición y ha producido grandes jugadores y
+                    equipos reconocidos internacionalmente.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            <img
+                src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1000&q=85"
+                alt="Deporte">
+
+            <div class="contenido">
+
+                <h3>🏇 Deportes tradicionales</h3>
+
+                <p>
+                    Los deportes relacionados con el caballo y las
+                    actividades rurales también están vinculados
+                    con las tradiciones argentinas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DATOS CURIOSOS -->
+
+<section>
+
+    <h2>🤯 Datos curiosos sobre Argentina</h2>
+
+    <div class="dato">
+
+        <h3>🇦🇷 ¿Sabías que...?</h3>
+
+        <ul class="lista">
+
+            <li>🧉 El mate es una de las costumbres más representativas del país.</li>
+
+            <li>💃 El tango es reconocido internacionalmente como una expresión cultural argentina y rioplatense.</li>
+
+            <li>🪗 El chamamé es una de las expresiones culturales más importantes de Corrientes.</li>
+
+            <li>🥩 El asado es mucho más que una comida: también representa una forma de reunirse.</li>
+
+            <li>🏔️ Argentina posee paisajes muy diferentes: montañas, selvas, desiertos, llanuras, glaciares y costas.</li>
+
+            <li>🎶 El folklore argentino reúne numerosos estilos musicales y danzas regionales.</li>
+
+            <li>⚽ El fútbol ocupa un lugar enorme en la cultura popular argentina.</li>
+
+            <li>🍷 Argentina es reconocida internacionalmente por sus vinos, especialmente el Malbec.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- TABLA -->
+
+<section>
+
+    <h2>📋 Resumen de la cultura argentina</h2>
+
+    <table>
+
+        <tr>
+            <th>Elemento</th>
+            <th>Ejemplo</th>
+            <th>Región o presencia</th>
+        </tr>
+
+        <tr>
+            <td>🧉 Bebida</td>
+            <td>Mate</td>
+            <td>Todo el país</td>
+        </tr>
+
+        <tr>
+            <td>🥩 Gastronomía</td>
+            <td>Asado</td>
+            <td>Todo el país</td>
+        </tr>
+
+        <tr>
+            <td>💃 Danza</td>
+            <td>Tango</td>
+            <td>Río de la Plata</td>
+        </tr>
+
+        <tr>
+            <td>🪗 Música</td>
+            <td>Chamamé</td>
+            <td>Corrientes y Litoral</td>
+        </tr>
+
+        <tr>
+            <td>🎶 Folklore</td>
+            <td>Zamba y chacarera</td>
+            <td>Norte y Centro</td>
+        </tr>
+
+        <tr>
+            <td>🍇 Producción</td>
+            <td>Vino</td>
+            <td>Cuyo</td>
+        </tr>
+
+        <tr>
+            <td>⚽ Deporte</td>
+            <td>Fútbol</td>
+            <td>Todo el país</td>
+        </tr>
+
+        <tr>
+            <td>🐎 Tradición</td>
+            <td>Gauchos</td>
+            <td>Pampa y zonas rurales</td>
+        </tr>
+
+    </table>
+
+</section>
+
+
+<!-- GALERÍA -->
+
+<section id="galeria">
+
+    <h2>📸 Galería de Argentina</h2>
+
+    <p class="subtitulo">
+        Algunos paisajes, costumbres y expresiones que forman parte
+        de la identidad argentina.
+    </p>
+
+    <div class="galeria">
+
+        <img
+            src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=1000&q=85"
+            alt="Argentina">
+
+        <img
+            src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1000&q=85"
+            alt="Patagonia">
+
+        <img
+            src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85"
+            alt="Paisaje argentino">
+
+        <img
+            src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1000&q=85"
+            alt="Asado">
+
+        <img
+            src="https://images.unsplash.com/photo-1598018553943-3c6c4d7a2d47?auto=format&fit=crop&w=1000&q=85"
+            alt="Mate">
+
+        <img
+            src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85"
+            alt="Tango">
+
+        <img
+            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1000&q=85"
+            alt="Música">
+
+        <img
+            src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
+            alt="Fútbol">
+
+    </div>
+
+</section>
+
+
+<!-- CONCLUSIÓN -->
+
+<section>
+
+    <h2>❤️ Conclusión</h2>
+
+    <img
+        class="imagen-grande"
+        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=90"
+        alt="Paisaje argentino">
+
+    <p class="intro">
+        La cultura argentina es diversa, dinámica y está formada por
+        muchas identidades que conviven dentro de un mismo país.
+        Sus tradiciones muestran la historia y la influencia de
+        diferentes pueblos y regiones.
+    </p>
+
+    <p class="intro">
+        Desde el mate y el asado hasta el tango, el folklore,
+        el chamamé, las fiestas populares y el fútbol, cada elemento
+        representa una parte de la identidad argentina.
+    </p>
+
+    <p class="intro">
+        Conocer nuestra cultura permite valorar nuestras raíces,
+        nuestras diferencias y todo aquello que nos une como argentinos.
+    </p>
+
+</section>
+
+
+<footer>
+
+    <h2 style="color:white;">
+        🇦🇷 Cultura de Argentina 🇦🇷
+    </h2>
+
+    <p>
+        Trabajo realizado para conocer y valorar las tradiciones,
+        costumbres, música, gastronomía, arte y diversidad cultural
+        de nuestro país.
+    </p>
+
+    <p>
+        Argentina: un país de muchas culturas, paisajes y tradiciones.
+    </p>
+
+    <p>
+        🌟 ¡Nuestra cultura nos identifica y nos une! 🌟
+    </p>
+
+</footer>
+
+</body>
+</html>
+```

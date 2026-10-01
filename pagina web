@@ -1,0 +1,706 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>El Niño y La Niña | Corrientes Capital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef7fb;
+            color: #183642;
+        }
+
+        /* =========================
+           PORTADA
+        ========================= */
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 50, 80, 0.65),
+                    rgba(0, 20, 40, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px black;
+        }
+
+        header p {
+            font-size: 25px;
+            max-width: 800px;
+            margin-bottom: 35px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #00a8cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #007c99;
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           MENÚ
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: #073b4c;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 80px 10%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 45px;
+            color: #075985;
+        }
+
+        /* =========================
+           INTRODUCCIÓN
+        ========================= */
+
+        .introduccion {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .introduccion p {
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           EL NIÑO Y LA NIÑA
+        ========================= */
+
+        .fenomenos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .tarjeta {
+            padding: 35px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-10px);
+        }
+
+        .nino {
+            background: linear-gradient(135deg, #e85d04, #f48c06);
+        }
+
+        .nina {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+        }
+
+        .tarjeta h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CORRIENTES
+        ========================= */
+
+        .corrientes {
+            background: #dff3fa;
+        }
+
+        .contenido-corrientes {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contenido-corrientes img {
+            width: 450px;
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .texto-corrientes {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .texto-corrientes p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           EFECTOS
+        ========================= */
+
+        .efectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .efecto {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #00a8cc;
+            transition: 0.3s;
+        }
+
+        .efecto:hover {
+            transform: translateY(-8px);
+        }
+
+        .efecto span {
+            font-size: 45px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .efecto h3 {
+            color: #075985;
+            margin-bottom: 12px;
+        }
+
+        .efecto p {
+            line-height: 1.6;
+        }
+
+        /* =========================
+           COMPARACIÓN
+        ========================= */
+
+        .tabla-contenedor {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 18px;
+            border: 1px solid #b8d8e3;
+            text-align: center;
+        }
+
+        th {
+            background: #073b4c;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #edf8fb;
+        }
+
+        /* =========================
+           RECOMENDACIONES
+        ========================= */
+
+        .recomendaciones {
+            background: #073b4c;
+            color: white;
+        }
+
+        .recomendaciones h2 {
+            color: white;
+        }
+
+        .lista {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .lista div {
+            background: rgba(255,255,255,0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-left: 5px solid #00d4ff;
+            border-radius: 8px;
+            font-size: 17px;
+        }
+
+        /* =========================
+           PIE DE PÁGINA
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #021f29;
+            color: #b9d9e2;
+        }
+
+        footer strong {
+            color: #00d4ff;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 45px;
+            }
+
+            header p {
+                font-size: 20px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            section h2 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         PORTADA
+    ========================= -->
+
+    <header id="inicio">
+
+        <h1>🌎 El Niño y La Niña</h1>
+
+        <p>
+            Fenómenos climáticos y sus posibles efectos
+            en Corrientes Capital
+        </p>
+
+        <a href="#que-son" class="boton">
+            Descubrir más
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         MENÚ
+    ========================= -->
+
+    <nav>
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#que-son">¿Qué son?</a>
+
+        <a href="#corrientes">Corrientes</a>
+
+        <a href="#efectos">Efectos</a>
+
+        <a href="#comparacion">Comparación</a>
+
+        <a href="#recomendaciones">Recomendaciones</a>
+
+    </nav>
+
+
+    <!-- =========================
+         INTRODUCCIÓN
+    ========================= -->
+
+    <section id="que-son">
+
+        <h2>¿Qué son El Niño y La Niña?</h2>
+
+        <div class="introduccion">
+
+            <p>
+                <strong>El Niño</strong> y <strong>La Niña</strong>
+                son fenómenos climáticos relacionados con cambios
+                en las temperaturas de la superficie del océano
+                Pacífico tropical y con modificaciones en los patrones
+                de circulación atmosférica.
+            </p>
+
+            <p>
+                Estos fenómenos forman parte del sistema conocido como
+                <strong>ENSO</strong> (El Niño-Oscilación del Sur) y
+                pueden influir en las precipitaciones, temperaturas y
+                condiciones meteorológicas de diferentes regiones
+                del planeta.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FENÓMENOS
+    ========================= -->
+
+    <section>
+
+        <h2>Dos fenómenos opuestos</h2>
+
+        <div class="fenomenos">
+
+            <div class="tarjeta nino">
+
+                <h3>☀️ El Niño</h3>
+
+                <p>
+                    Se caracteriza por un calentamiento anómalo de
+                    las aguas superficiales del Pacífico ecuatorial
+                    central y oriental.
+                </p>
+
+                <br>
+
+                <p>
+                    En diferentes regiones del mundo puede modificar
+                    las lluvias y temperaturas habituales.
+                </p>
+
+            </div>
+
+
+            <div class="tarjeta nina">
+
+                <h3>🌧️ La Niña</h3>
+
+                <p>
+                    Se caracteriza por un enfriamiento anómalo de
+                    las aguas superficiales del Pacífico ecuatorial
+                    central y oriental.
+                </p>
+
+                <br>
+
+                <p>
+                    También puede modificar los patrones de
+                    precipitación y temperatura a escala regional
+                    y global.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CORRIENTES CAPITAL
+    ========================= -->
+
+    <section id="corrientes" class="corrientes">
+
+        <h2>¿Qué puede pasar en Corrientes Capital?</h2>
+
+        <div class="contenido-corrientes">
+
+            <img
+                src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=900&q=80"
+                alt="Paisaje con agua y vegetación">
+
+            <div class="texto-corrientes">
+
+                <p>
+                    La provincia de Corrientes se encuentra en una
+                    región donde las variaciones de precipitación
+                    asociadas a El Niño y La Niña pueden tener
+                    importancia.
+                </p>
+
+                <p>
+                    En períodos determinados, estos fenómenos pueden
+                    favorecer condiciones más húmedas o más secas
+                    de lo habitual, aunque sus efectos concretos
+                    dependen de la combinación con otros factores
+                    meteorológicos.
+                </p>
+
+                <p>
+                    Por eso es importante consultar los pronósticos
+                    y alertas oficiales, especialmente durante
+                    períodos de lluvias intensas, tormentas,
+                    inundaciones o sequías.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EFECTOS
+    ========================= -->
+
+    <section id="efectos">
+
+        <h2>Posibles efectos</h2>
+
+        <div class="efectos">
+
+            <div class="efecto">
+
+                <span>🌧️</span>
+
+                <h3>Precipitaciones</h3>
+
+                <p>
+                    Pueden producirse períodos con lluvias
+                    superiores o inferiores a los valores habituales.
+                </p>
+
+            </div>
+
+
+            <div class="efecto">
+
+                <span>🌊</span>
+
+                <h3>Ríos y arroyos</h3>
+
+                <p>
+                    Las variaciones de las precipitaciones pueden
+                    influir en los niveles de los cursos de agua.
+                </p>
+
+            </div>
+
+
+            <div class="efecto">
+
+                <span>🌱</span>
+
+                <h3>Agricultura</h3>
+
+                <p>
+                    Los cambios en las lluvias y temperaturas pueden
+                    afectar las actividades productivas.
+                </p>
+
+            </div>
+
+
+            <div class="efecto">
+
+                <span>🌡️</span>
+
+                <h3>Temperaturas</h3>
+
+                <p>
+                    Los patrones climáticos pueden presentar
+                    temperaturas diferentes de las habituales.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMPARACIÓN
+    ========================= -->
+
+    <section id="comparacion">
+
+        <h2>El Niño vs. La Niña</h2>
+
+        <div class="tabla-contenedor">
+
+            <table>
+
+                <tr>
+                    <th>Característica</th>
+                    <th>El Niño ☀️</th>
+                    <th>La Niña 🌧️</th>
+                </tr>
+
+                <tr>
+                    <td>Temperatura del Pacífico</td>
+                    <td>Más cálida de lo normal</td>
+                    <td>Más fría de lo normal</td>
+                </tr>
+
+                <tr>
+                    <td>Precipitaciones</td>
+                    <td>Puede favorecer cambios en las lluvias</td>
+                    <td>Puede favorecer cambios en las lluvias</td>
+                </tr>
+
+                <tr>
+                    <td>Impacto</td>
+                    <td>Varía según la región</td>
+                    <td>Varía según la región</td>
+                </tr>
+
+                <tr>
+                    <td>Corrientes</td>
+                    <td>Puede modificar las condiciones habituales</td>
+                    <td>Puede modificar las condiciones habituales</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECOMENDACIONES
+    ========================= -->
+
+    <section id="recomendaciones" class="recomendaciones">
+
+        <h2>¿Cómo estar preparados?</h2>
+
+        <div class="lista">
+
+            <div>
+                🌦️ Consultar regularmente los pronósticos
+                meteorológicos.
+            </div>
+
+            <div>
+                📱 Prestar atención a las alertas emitidas por
+                organismos oficiales.
+            </div>
+
+            <div>
+                🌊 En caso de lluvias intensas, evitar circular
+                por zonas que puedan inundarse.
+            </div>
+
+            <div>
+                🏠 Mantener limpios los desagües y canaletas
+                de los hogares.
+            </div>
+
+            <div>
+                🚨 Ante una emergencia, comunicarse con los
+                servicios correspondientes.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            🌎 <strong>El Niño y La Niña en Corrientes Capital</strong>
+        </p>
+
+        <br>
+
+        <p>
+            Proyecto educativo sobre fenómenos climáticos.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 - Página educativa
+        </p>
+
+    </footer>
+
+</body>
+</html>
